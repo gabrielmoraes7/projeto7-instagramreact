@@ -38,7 +38,7 @@ export default function Post(props){
 
                 return(
                     <>
-                        <div class="post">
+                        <div class="post" data-test="post">
 
                             <div class="post-topo">
                             <div class="post-usuario">
@@ -48,22 +48,22 @@ export default function Post(props){
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
                             </div>
                             <div class="postagem">
-                            <img src={props.img} alt="" />
+                            <img src={props.img} alt="" data-test="post-image"/>
                             </div>
 
                             <div class="post-inferior">
                             <div class="interacao">
-                                <ion-icon name={like} onClick={switchLike} color={colorLike}></ion-icon>
+                                <ion-icon name={like} onClick={switchLike} color={colorLike} data-test="like-post"></ion-icon>
                                 <ion-icon name="chatbubble-outline"></ion-icon>
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
                             <div class="salvar">
-                                <ion-icon name={save} onClick={salvarPost}></ion-icon>
+                                <ion-icon name={save} onClick={salvarPost} data-test="save-post"></ion-icon>
                             </div>
                             </div>
                             <div class="curtidas">
                             <img src="assets/9gag.svg" alt=""/>
-                            <p>Curtido por <strong>respondeai</strong> e <strong>outras {curtidas} pessoas</strong></p>
+                            <p data-test="likes-number">Curtido por <strong>respondeai</strong> e <strong>outras {curtidas} pessoas</strong></p>
                             </div>
                             <div class="add-comentario">
                                 <input type="text" class="comentario" placeholder="Adicione um comentário" />
