@@ -33,7 +33,9 @@ export default function Post(props){
     }
 
     function postLike(){
-
+            setLike('heart')
+            setColorLike('danger');
+            console.log("curtiu pelo post");
     }
 
                 return(
@@ -48,7 +50,7 @@ export default function Post(props){
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
                             </div>
                             <div class="postagem">
-                            <img src={props.img} alt="" data-test="post-image"/>
+                            <img src={props.img} alt="" data-test="post-image" onClick={postLike}/>
                             </div>
 
                             <div class="post-inferior">
