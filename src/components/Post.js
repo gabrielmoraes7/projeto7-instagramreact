@@ -6,6 +6,7 @@ export default function Post(props){
     let [like, setLike] = useState('heart-outline');
     let [colorLike, setColorLike] = useState('black');
     let [curtidas, setCurtidas] = useState(props.curtidas);
+    let [lastClickTime, setLastClickTime] = useState(null);
     function salvarPost(){
         if (save == 'bookmark-outline') {
             setSave('bookmark');
@@ -33,9 +34,19 @@ export default function Post(props){
     }
 
     function postLike(){
+        const currentTime = new Date().getTime();
+        if (lastClickTime && currentTime - lastClickTime < 1000) {
             setLike('heart')
             setColorLike('danger');
+            setCurtidas((liked) => liked + 1);
+            console.log(curtidas);
             console.log("curtiu pelo post");
+            setLastClickTime(null);
+        } else {
+          setLastClickTime(currentTime);
+        }
+
+            
     }
 
                 return(
