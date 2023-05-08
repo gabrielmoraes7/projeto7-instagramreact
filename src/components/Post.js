@@ -6,7 +6,7 @@ export default function Post(props){
     let [like, setLike] = useState('heart-outline');
     let [colorLike, setColorLike] = useState('black');
     let [curtidas, setCurtidas] = useState(props.curtidas);
-    let [lastClickTime, setLastClickTime] = useState(null);
+    
     function salvarPost(){
         if (save == 'bookmark-outline') {
             setSave('bookmark');
@@ -34,17 +34,11 @@ export default function Post(props){
     }
 
     function postLike(){
-        const currentTime = new Date().getTime();
-        if (lastClickTime && currentTime - lastClickTime < 1000) {
             setLike('heart')
             setColorLike('danger');
             setCurtidas((liked) => liked + 1);
             console.log(curtidas);
             console.log("curtiu pelo post");
-            setLastClickTime(null);
-        } else {
-          setLastClickTime(currentTime);
-        }
 
             
     }
@@ -61,7 +55,7 @@ export default function Post(props){
                             <ion-icon name="ellipsis-horizontal"></ion-icon>
                             </div>
                             <div class="postagem">
-                            <img src={props.img} alt="" data-test="post-image" onClick={postLike}/>
+                            <img src={props.img} alt="" data-test="post-image" onDoubleClick={postLike}/>
                             </div>
 
                             <div class="post-inferior">
